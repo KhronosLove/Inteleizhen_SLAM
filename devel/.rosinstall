@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/xjtlu/catkin_ws/devel/setup.sh

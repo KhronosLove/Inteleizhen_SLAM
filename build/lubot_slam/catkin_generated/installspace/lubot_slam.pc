@@ -1,0 +1,8 @@
+prefix=/home/xjtlu/catkin_ws/install
+
+Name: lubot_slam
+Description: Description of lubot_slam
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

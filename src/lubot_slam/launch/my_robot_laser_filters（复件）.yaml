@@ -1,0 +1,49 @@
+scan_filter_chain:
+- name: angle1
+  type: laser_filters/LaserScanAngularBoundsFilterInPlace
+  params:
+    lower_angle: -2.0
+    upper_angle: 2.0
+
+- name: shadows
+  type: laser_filters/ScanShadowsFilter
+  params:
+    min_angle: 5
+    max_angle: 170
+    neighbors: 20
+    window: 1
+- name: dark_shadows
+  type: laser_filters/LaserScanIntensityFilter
+  params:
+    lower_threshold: 100
+    upper_threshold: 5000
+    disp_histogram: 0
+
+- type: laser_filters/LaserArrayFilter
+  name: laser_median_filter
+  params: 
+    range_filter_chain:
+      - name: median_5
+        type: filters/MultiChannelMedianFilterFloat 
+        params:
+          number_of_observations: 5
+          unused: 10
+    intensity_filter_chain:
+      - name: median_5
+        type: filters/MultiChannelMedianFilterFloat 
+        params:
+          number_of_observations: 5
+          unused: 10 
+
+
+- name: interpolation
+  type: laser_filters/InterpolationFilter
+
+- name: range
+  type: laser_filters/LaserScanRangeFilter
+  params:
+    use_message_range_limits: false
+    lower_threshold: 0.3
+    upper_threshold: .inf
+    lower_replacement_value: -.inf
+    upper_replacement_value: .inf

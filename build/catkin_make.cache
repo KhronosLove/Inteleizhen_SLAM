@@ -1,0 +1,2 @@
+imu_tools/imu_complementary_filter:imu_tools/imu_filter_madgwick:imu_tools/imu_tools:imu_tools/rviz_imu_plugin:lubot_slam:robot_localization:robot_localization_demo:ros_arduino_bridge/ros_arduino_bridge:ros_arduino_bridge/ros_arduino_firmware:ros_arduino_bridge/ros_arduino_msgs:ros_arduino_bridge/ros_arduino_python:sanchi_amov:teleop_twist_keyboard:wj_716_lidar
+-DCATKIN_DEVEL_PREFIX=/home/xjtlu/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/xjtlu/catkin_ws/install -G Unix Makefiles

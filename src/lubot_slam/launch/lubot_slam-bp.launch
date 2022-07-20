@@ -1,0 +1,116 @@
+<launch>
+  <include file="$(find ros_arduino_python)/launch/arduino.launch" />
+  <include file="$(find rplidar_ros)/launch/rplidar.launch" />
+  <!--<include file="$(find handsfree_ros_imu)/launch/handsfree_imu.launch" />-->
+
+  
+  <node pkg="tf" type="static_transform_publisher" name="base_to_laser" args="0.043 0 0.39 0 0 0 base_link laser 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="base_to_footprint" args="0 0 0 0 0 0 base_link base_footprint 100"/>
+  <!--<node pkg="tf" type="static_transform_publisher" name="base_to_imu" args="0.0 0 0 0 0 0 base_link imu_link 100"/>
+  
+  <node pkg="tf" type="static_transform_publisher" name="map_odom_boradcaster" args="0 0 0 0 0 0 map odom 100"/>-->
+  
+  <!--<arg name="scan_topic" default="scan" /> -->
+
+  <node name="map_server" pkg="map_server" type="map_server" args="/home/oem/catkin1_ws/src/lubot_slam/maps/test2.yaml" output="screen" >
+    <param name="frame_id" value="map"/>
+  </node>
+  
+
+  <!--
+  <include file="$(find amcl)/examples/amcl_diff.launch" />
+  -->
+  
+  <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="laser_filter">
+    <rosparam command="load" file="$(find lubot_slam)/launch/my_robot_laser_filters.yaml" />
+    
+  </node> 
+  
+  <node pkg="amcl" type="amcl" name="amcl" output="screen" clear_params="true">
+    <param name="gui_publish_rate" value="10.0"/>
+    <param name="base_frame_id" value="base_footprint" />
+    <param name="kld_err" value="0.05"/>
+    <param name="kld_z" value="0.99"/>
+    <param name="laser_lambda_short" value="0.1"/>
+    <param name="laser_likelihood_max_dist" value="2.0"/>
+    <param name="laser_max_beams" value="300"/>
+    <param name="laser_min_range" value="-1"/>
+    <param name="laser_model_type" value="likelihood_field"/>
+    <param name="laser_sigma_hit" value="0.2"/>
+    <param name="laser_z_hit" value="0.9"/>
+    <param name="laser_z_short" value="0.05"/>
+    <param name="laser_z_max" value="0.05"/>
+    <param name="laser_z_rand" value="0.5"/>
+    <param name="min_particles" value="500"/>
+    <param name="max_particles" value="5000"/>
+    
+    <param name="odom_alpha1" value="0.1"/>
+    <param name="odom_alpha2" value="0.1"/>
+    <param name="odom_alpha3" value="0.1"/>
+    <param name="odom_alpha4" value="0.1"/>
+    <param name="odom_alpha5" value="0.1"/>
+    
+    <param name="odom_frame_id" value="odom"/>
+    <param name="odom_model_type" value="diff"/>  <!--diff-corrected-->
+    <param name="recovery_alpha_slow" value="0.001"/>
+    <param name="recovery_alpha_fast" value="0.1"/>
+    <param name="resample_interval" value="1"/>
+    <param name="transform_tolerance" value="0.1"/>
+    
+   
+    <param name="update_min_d" value="-0.2"/>
+    <param name="update_min_a" value="0.05"/>
+    
+    
+    
+    
+    <param name="tf_broadcast" value="true" />
+    <param name="global_frame_id" value="map" />
+    <param name="use_map_topic" value="false" />
+    <param name="first_map_only" value="false"/>
+    <param name="initial_pose_x" value="0.0" />
+    <param name="initial_pose_y" value="0.0" />
+    <param name="initial_pose_a" value="0.0" />
+    <param name="initial_cov_xx" value="0.5*0.5" />
+    <param name="initial_cov_yy" value="0.5*0.5" />
+    <param name="initial_cov_aa" value="(π/12)*(π/12)" />
+    <remap from="scan" to="scan_filtered" />
+  </node>
+  
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen" clear_params="true">
+    <rosparam file="$(find lubot_slam)/config/fake/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find lubot_slam)/config/fake/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find lubot_slam)/config/fake/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find lubot_slam)/config/fake/global_costmap_params.yaml" command="load" />
+    <!--<rosparam file="$(find lubot_slam)/config/fake/base_local_planner_params.yaml" command="load" />-->
+    <rosparam file="$(find lubot_slam)/config/fake/teb_local_planner_params.yaml" command="load" />
+    
+    <param name="base_global_planner" value="global_planner/GlobalPlanner" />
+    <param name="planner_frequency" value="1.0" />
+    <param name="planner_patience" value="5.0" />
+    
+    <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+    <param name="controller_frequency" value="5.0" />
+    <param name="controller_patience" value="15.0" />
+  </node>  
+  
+  
+  
+  
+  <!--<include file="$(find scan_map_icp)/launch/scan_map_icp.launch" />-->
+  
+  
+  
+  
+  <!--
+  <node pkg="fake_localization" type="fake_localization" name="fake_localization" clear_params="true" output="screen">
+    <remap from="base_pose_ground_truth" to="odom" />
+    <param name="global_frame_id" value="map" />
+    <param name="base_frame_id" value="base_footprint" />
+  </node>
+  -->
+  
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find lubot_slam)/rviz/gmapping.rviz"/>
+
+</launch>
