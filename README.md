@@ -1,5 +1,5 @@
 # Inteleizhen_SLAM
 
-The document will be finished while I am free.
+The document will be finished soon.
 
 SHUANK U. ❤️
