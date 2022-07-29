@@ -6,8 +6,8 @@
   <include file="$(find wj_716_lidar)/launch/wj_716_lidar_02.launch" />
   
 
-  <!--<node pkg="tf" type="static_transform_publisher" name="base_to_imu" args="0 0 0 0 0 0 base_link imu_link 100"/>
-  <node pkg="tf" type="static_transform_publisher" name="odom_map_boradcaster" args="0 0 0 0 0 0 map odom 100"/>-->
+  <!-- <node pkg="tf" type="static_transform_publisher" name="base_to_imu" args="0 0 0 0 0 0 base_link imu_link 100"/>
+  <node pkg="tf" type="static_transform_publisher" name="odom_map_boradcaster" args="0 0 0 0 0 0 map odom 100"/>--> -->
   <!-- <node name="base_imu_link" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0  /base_link /imu_link 50"/> -->
 	
 
@@ -19,14 +19,16 @@
     <rosparam file="$(find lubot_slam)/config/fake/costmap_common_params.yaml" command="load" ns="local_costmap" />
     <rosparam file="$(find lubot_slam)/config/fake/local_costmap_params.yaml" command="load" />
     <rosparam file="$(find lubot_slam)/config/fake/global_costmap_params.yaml" command="load" />
+
     <!--<rosparam file="$(find lubot_slam)/config/fake/base_local_planner_params.yaml" command="load" />-->
     <!--<rosparam file="$(find lubot_slam)/config/fake/teb_local_planner_params.yaml" command="load" />-->
     <rosparam file="$(find lubot_slam)/config/fake/dwa_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find lubot_slam)/config/fake/global_palnner.yaml" command="load"/>
     
     <!--<rosparam file="$(find lubot_slam)/config/fake/prohibition_areas.yaml" command="load" ns="global_costmap/costmap_prohibition_layer" />
     <rosparam file="$(find lubot_slam)/config/fake/prohibition_areas.yaml" command="load" ns="local_costmap/costmap_prohibition_layer" />-->
     
-    <param name="base_global_planner" value="global_planner/GlobalPlanner" />
+    <!-- <param name="base_global_planner" value="global_planner/GlobalPlanner" /> -->
     <param name="planner_frequency" value="1.0" />
     <param name="planner_patience" value="5.0" />
 
@@ -51,10 +53,11 @@
     <param name="self_diagnose" value="false"/>
     <remap from="imu_data" to="/imu/data_raw" />
     <remap from="odom_wheel" to="odom" />
+
   </node>
 
   
-  <!-- <node name="rviz" pkg="rviz" type="rviz" required="true"
-      args="-d /home/xjtlu/cartog_ws/src/cartographer_ros/cartographer_ros/configuration_files/demo_2d.rviz" /> -->
+  <node name="rviz" pkg="rviz" type="rviz" required="true"
+      args="-d /home/xjtlu/cartog_ws/src/cartographer_ros/cartographer_ros/configuration_files/demo_2d.rviz" />
 
 </launch>

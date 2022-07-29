@@ -1,4 +1,4 @@
-
+---
 #---standard pioneer footprint---
 #---(in meters)---
 #robot_radius: 0.17
@@ -10,37 +10,42 @@ transform_tolerance: 5.0
 #z_voxels: 20
 #always_send_full_costmap: true
 
-obstacle_layer:
- enabled: true
- obstacle_range: 4.5
- raytrace_range: 5.0
- inflation_radius: 0.3
- track_unknown_space: false
- combination_method: 1
- #scan_filtered
- observation_sources: bump scan_wj_1 scan_wj_2  #scan_rpl # #bump  # 
- #scan_rpl: 
- #  data_type: LaserScan
- #  topic: /scan_filtered
- #  marking: true
- #  clearing: true
- scan_wj_1: {data_type: LaserScan,topic: /scan_wj_1,marking: true,clearing: true}
- scan_wj_2: {data_type: LaserScan,topic: /scan_wj_2,marking: true,clearing: true}
- bump: {data_type: PointCloud2,topic: /scan_matched_points2,marking: true, clearing: true}
+# global planner
+# lethal_cost=253
+# neutral_cost=66
+# cost_factor=0.55
 
+# plugins layers list
+static_layer:
+  enabled: true
+  map_topic: '/map'
+
+obstacle_layer:
+  enabled: true
+  obstacle_range: 4.5
+  raytrace_range: 5.0
+  inflation_radius: 0.3
+  track_unknown_space: false
+  combination_method: 1
+  #scan_filtered
+  observation_sources: bump scan_wj_1 scan_wj_2 #scan_rpl
+  #scan_rpl:
+  #  data_type: LaserScan
+  #  topic: /scan_filtered
+  #  marking: true
+  #  clearing: true
+  scan_wj_1: { data_type: LaserScan, topic: /scan_wj_1, marking: true, clearing: true }
+  scan_wj_2: { data_type: LaserScan, topic: /scan_wj_2, marking: true, clearing: true }
+  bump: { data_type: PointCloud2, topic: /scan_matched_points2, marking: true, clearing: true }
 
 inflation_layer_global:
-  enabled:              true
-  cost_scaling_factor:  12.0  # exponential rate at which the obstacle cost drops off (default: 10)
-  inflation_radius:     0.5  # max. distance from an obstacle at which costs are incurred for planning paths.
+  enabled: true
+  # multiplied by cost value; reciprocal propotion; increase, the cost decreases
+  cost_scaling_factor: 3.0 # 12
+  # makes inflation area from the obstacle.
+  inflation_radius: 0.6
 
 inflation_layer_local:
-  enabled:              true
-  cost_scaling_factor:  12.0
-  inflation_radius:     0.5
-  
-static_layer:
-  enabled:              true
-  map_topic:            "/map"
-  
-
+  enabled: true
+  cost_scaling_factor: 3.0 # 12
+  inflation_radius: 0.6
