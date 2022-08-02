@@ -1,0 +1,6 @@
+
+<!-- 组合惯性矩阵文件、小车、摄像头、雷达和运动控制 -->
+<robot name="cartographer_backpack_2d" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:include filename="xacro/car.xacro" />
+    <xacro:include filename="xacro/laser.xacro" />
+</robot>
