@@ -1,6 +1,0 @@
-image: /home/xjtlu/catkin_ws/src/lubot_slam/maps/test2.pgm
-resolution: 0.05
-origin: [-10.9361, -24.2509, 0.0]
-negate: 0
-occupied_thresh: 0.65
-free_thresh: 0.196
