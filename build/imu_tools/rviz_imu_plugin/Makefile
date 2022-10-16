@@ -68,16 +68,6 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -88,6 +78,16 @@ test:
 test/fast: test
 
 .PHONY : test/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target install
 install: preinstall
@@ -126,8 +126,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -181,6 +181,66 @@ rviz_imu_plugin: imu_tools/rviz_imu_plugin/CMakeFiles/rviz_imu_plugin.dir/rule
 rviz_imu_plugin/fast:
 	cd /home/xjtlu/catkin_ws/build && $(MAKE) -f imu_tools/rviz_imu_plugin/CMakeFiles/rviz_imu_plugin.dir/build.make imu_tools/rviz_imu_plugin/CMakeFiles/rviz_imu_plugin.dir/build
 .PHONY : rviz_imu_plugin/fast
+
+# Convenience name for target.
+imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_py.dir/rule:
+	cd /home/xjtlu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
+.PHONY : imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_py: imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
+
+.PHONY : nav_msgs_generate_messages_py
+
+# fast build rule for target.
+nav_msgs_generate_messages_py/fast:
+	cd /home/xjtlu/catkin_ws/build && $(MAKE) -f imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_py.dir/build
+.PHONY : nav_msgs_generate_messages_py/fast
+
+# Convenience name for target.
+imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/xjtlu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
+.PHONY : imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_nodejs: imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : nav_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+nav_msgs_generate_messages_nodejs/fast:
+	cd /home/xjtlu/catkin_ws/build && $(MAKE) -f imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
+.PHONY : nav_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule:
+	cd /home/xjtlu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
+.PHONY : imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_lisp: imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : nav_msgs_generate_messages_lisp
+
+# fast build rule for target.
+nav_msgs_generate_messages_lisp/fast:
+	cd /home/xjtlu/catkin_ws/build && $(MAKE) -f imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build
+.PHONY : nav_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule:
+	cd /home/xjtlu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+.PHONY : imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_cpp: imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : nav_msgs_generate_messages_cpp
+
+# fast build rule for target.
+nav_msgs_generate_messages_cpp/fast:
+	cd /home/xjtlu/catkin_ws/build && $(MAKE) -f imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
+.PHONY : nav_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
 imu_tools/rviz_imu_plugin/CMakeFiles/rviz_generate_messages_eus.dir/rule:
@@ -271,6 +331,21 @@ visualization_msgs_generate_messages_eus: imu_tools/rviz_imu_plugin/CMakeFiles/v
 visualization_msgs_generate_messages_eus/fast:
 	cd /home/xjtlu/catkin_ws/build && $(MAKE) -f imu_tools/rviz_imu_plugin/CMakeFiles/visualization_msgs_generate_messages_eus.dir/build.make imu_tools/rviz_imu_plugin/CMakeFiles/visualization_msgs_generate_messages_eus.dir/build
 .PHONY : visualization_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule:
+	cd /home/xjtlu/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
+.PHONY : imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_eus: imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
+
+.PHONY : nav_msgs_generate_messages_eus
+
+# fast build rule for target.
+nav_msgs_generate_messages_eus/fast:
+	cd /home/xjtlu/catkin_ws/build && $(MAKE) -f imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make imu_tools/rviz_imu_plugin/CMakeFiles/nav_msgs_generate_messages_eus.dir/build
+.PHONY : nav_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 imu_tools/rviz_imu_plugin/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/rule:
@@ -564,9 +639,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... list_install_components"
 	@echo "... test"
 	@echo "... rviz_imu_plugin"
+	@echo "... list_install_components"
+	@echo "... nav_msgs_generate_messages_py"
+	@echo "... nav_msgs_generate_messages_nodejs"
+	@echo "... nav_msgs_generate_messages_lisp"
+	@echo "... nav_msgs_generate_messages_cpp"
 	@echo "... rviz_generate_messages_eus"
 	@echo "... visualization_msgs_generate_messages_cpp"
 	@echo "... visualization_msgs_generate_messages_lisp"
@@ -575,6 +654,7 @@ help:
 	@echo "... install/local"
 	@echo "... rviz_generate_messages_py"
 	@echo "... visualization_msgs_generate_messages_eus"
+	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... visualization_msgs_generate_messages_nodejs"
 	@echo "... visualization_msgs_generate_messages_py"
 	@echo "... map_msgs_generate_messages_cpp"

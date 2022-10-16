@@ -32,7 +32,7 @@ void tag_cb(const apriltag_ros::AprilTagDetectionArrayConstPtr& msg)
 	cartographer_ros_msgs::LandmarkList  landmark;
 
     landmark.header.stamp = ros::Time::now();
-    landmark.header.frame_id = "base_footprint";    // 根据lua配置坐标系
+    landmark.header.frame_id = "camera";    // 根据lua配置坐标系
     landmark.landmarks.resize(1);
 
 	std::stringstream ss;

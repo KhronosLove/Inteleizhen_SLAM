@@ -1,0 +1,25 @@
+<launch>
+  
+  <include file="$(find sanchi_amov)/launch/imu_100D2.launch" />
+  <include file="$(find wj_716_lidar)/launch/wj_716_lidar_01.launch" />
+  <include file="$(find wj_716_lidar)/launch/wj_716_lidar_02.launch" />
+  <include file="$(find astrapro_launch)/launch/astrapro.launch" />
+  <include file="$(find ros_arduino_python)/launch/arduino.launch" />
+
+  <!-- Topic to record 
+  imu: 
+    /imu/data_raw
+  lidar: 
+    /scan_wj_1
+    /scan_wj_2
+  camera:
+    /camera/depth/image_raw  
+    /camera/rgb/image_raw
+    /camera/ir/image 
+  wheel odom:
+    /odom
+  -->
+  <!-- rosbag record -O ~/rosbag/xxx.bag /imu/data_raw /scan_wj_1 /scan_wj_2 /camera/depth/image_raw /camera/rgb/image_raw /camera/ir/image /odom -->
+  <!-- rosbag record -O ~/rosbag/camCal.bag  /scan_wj_2  /camera/rgb/image_raw -->
+
+</launch>

@@ -19,11 +19,10 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/home/xjtlu/catkin_ws/devel/include"
   "/home/xjtlu/catkin_ws/src/wj_716_lidar/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
-  "/home/xjtlu/catkin_ws/src/wj_716_lidar/BEFORE"
-  "/home/xjtlu/catkin_ws/devel/include"
   )
 
 # Targets to which this target links.

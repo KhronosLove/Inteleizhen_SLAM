@@ -1,2 +1,0 @@
-set(robot_localization_MESSAGE_FILES "")
-set(robot_localization_SERVICE_FILES "/home/xjtlu/catkin_ws/src/robot_localization/srv/GetState.srv;/home/xjtlu/catkin_ws/src/robot_localization/srv/SetDatum.srv;/home/xjtlu/catkin_ws/src/robot_localization/srv/SetPose.srv;/home/xjtlu/catkin_ws/src/robot_localization/srv/SetUTMZone.srv;/home/xjtlu/catkin_ws/src/robot_localization/srv/ToggleFilterProcessing.srv;/home/xjtlu/catkin_ws/src/robot_localization/srv/FromLL.srv;/home/xjtlu/catkin_ws/src/robot_localization/srv/ToLL.srv")

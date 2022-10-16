@@ -55,7 +55,7 @@ include imu_tools/rviz_imu_plugin/CMakeFiles/rviz_imu_plugin_autogen.dir/progres
 
 imu_tools/rviz_imu_plugin/CMakeFiles/rviz_imu_plugin_autogen:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/xjtlu/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target rviz_imu_plugin"
-	cd /home/xjtlu/catkin_ws/build/imu_tools/rviz_imu_plugin && /usr/bin/cmake -E cmake_autogen /home/xjtlu/catkin_ws/build/imu_tools/rviz_imu_plugin/CMakeFiles/rviz_imu_plugin_autogen.dir/AutogenInfo.json Release
+	cd /home/xjtlu/catkin_ws/build/imu_tools/rviz_imu_plugin && /usr/bin/cmake -E cmake_autogen /home/xjtlu/catkin_ws/build/imu_tools/rviz_imu_plugin/CMakeFiles/rviz_imu_plugin_autogen.dir/AutogenInfo.json ""
 
 rviz_imu_plugin_autogen: imu_tools/rviz_imu_plugin/CMakeFiles/rviz_imu_plugin_autogen
 rviz_imu_plugin_autogen: imu_tools/rviz_imu_plugin/CMakeFiles/rviz_imu_plugin_autogen.dir/build.make

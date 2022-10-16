@@ -111,6 +111,6 @@
   -->
   
 
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find lubot_slam)/rviz/gmapping.rviz"/>
+  <!--<node name="rviz" pkg="rviz" type="rviz" args="-d $(find lubot_slam)/rviz/gmapping.rviz"/>-->
 
 </launch>

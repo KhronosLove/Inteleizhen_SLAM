@@ -307,8 +307,9 @@ class Arduino485:
         enc_l = self.send485("014350165015")
         enc_r = self.send485("014351165115")
         
-        
+        #print("ok:02")
         enc_l = ctypes.c_int32(int(enc_l[12:20],16)).value
+        #print("ok:03")
         enc_r = -ctypes.c_int32(int(enc_r[12:20],16)).value
         
         if self.motors_reversed:

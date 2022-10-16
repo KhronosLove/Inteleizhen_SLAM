@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -O2 -g -Wall     -shared -Wl,-soname,libmulti_lidar_calibrator_lib.so -o /home/xjtlu/catkin_ws/devel/lib/libmulti_lidar_calibrator_lib.so CMakeFiles/multi_lidar_calibrator_lib.dir/src/multi_lidar_calibrator.cpp.o 

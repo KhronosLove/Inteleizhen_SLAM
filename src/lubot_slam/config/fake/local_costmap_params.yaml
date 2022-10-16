@@ -9,7 +9,7 @@ local_costmap:
    publish_frequency: 2.0
 
    # map params
-   static_map: false
+   # static_map: false
    rolling_window: true
    resolution: 0.01
 

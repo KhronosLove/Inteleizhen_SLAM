@@ -10,7 +10,7 @@ global_costmap:
    publish_frequency: 0.0
 
    # map params
-   static_map: true
+   # static_map: true
    rolling_window: false
    resolution: 0.02
 

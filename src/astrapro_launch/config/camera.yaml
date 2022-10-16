@@ -1,0 +1,27 @@
+# hanlin got in 9.30 from dataset 919 and 923 in folder /rosbag
+image_width: 640
+image_height: 480
+camera_name: camera
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [562.0, 0.000000, 317.0, 
+          0.000000, 562.0, 230.0, 
+          0.000000, 0.000000, 1.000000]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.12, -0.22, 0.0, 0.0, 0.000000]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1.000000, 0.000000, 0.000000, 
+          0.000000, 1.000000, 0.000000, 
+          0.000000, 0.000000, 1.000000]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [616.194702, 0.000000, 352.115424, 0.000000, 
+          0.000000, 618.615906, 285.316735, 0.000000, 
+          0.000000, 0.000000, 1.000000, 0.000000]
